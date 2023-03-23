@@ -1,0 +1,19 @@
+01 suma srazek = SUM(data[srazky])
+_____________________
+02 suma srazek ruzyne = 
+-- respektuji filtr vizualu a nastavuji dalsi
+
+SUMX(FILTER(data,data[lokalita] = "RUZYNE"),data[srazky])
+___________________________
+
+03 suma srazek vse = 
+-- filtry rusim, zadne nenastavuji
+
+SUMX(ALL(data),data[srazky])
+
+________________________________________________________
+04 suma srazek rok 2000 = 
+SUMX(FILTER(ALL(data),data[rok] = 2000),data[srazky])
+________________________________________________________
+05 suma srazek maximalni rok = 
+SUMX(FILTER(ALL(data),data[rok] = MAXX(ALL(data),data[rok])),data[srazky])
