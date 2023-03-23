@@ -23,3 +23,6 @@ __________________________________________________________
 MAXX(FILTER(data, data[lokalita] = "RUZYNE" && data[srazky] = 
 -- maximalni srazky v ruzyni v danem roce 
 MAXX(FILTER(data,data[lokalita] = "RUZYNE"),data[srazky])),data[datum])
+____________________________________-
+13 byla ruzyne nejteplejsi = 
+IF(MAXX(FILTER(data,data[lokalita]= "RUZYNE"),data[maximalni_teplota]) = MAX(data[maximalni_teplota]),"ANO","NE")
