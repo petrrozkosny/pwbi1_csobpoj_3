@@ -36,3 +36,10 @@ VAR maximalni_teplota_vse = MAXX(ALL(data),data[maximalni_teplota])
 return
 IF(maximalni_teplota = maximalni_teplota_vse,"nejteplejsi celkem",
     IF(maximalni_teplota = maximalni_teplota_rok, "nejteplejsi v roce",""))
+    
+    ___________________________________________
+    
+    ___typ_obdobi_srazky = 
+IF(SELECTEDVALUE(typ_hodnoty[typ_hodnoty]) = "kumulativne",
+CALCULATE(SUM(data[srazky]),data[mesic]<=SELECTEDVALUE(data[mesic])),
+SUM(data[srazky]))
