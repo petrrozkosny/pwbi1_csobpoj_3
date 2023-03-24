@@ -26,3 +26,13 @@ MAXX(FILTER(data,data[lokalita] = "RUZYNE"),data[srazky])),data[datum])
 ____________________________________-
 13 byla ruzyne nejteplejsi = 
 IF(MAXX(FILTER(data,data[lokalita]= "RUZYNE"),data[maximalni_teplota]) = MAX(data[maximalni_teplota]),"ANO","NE")
+_________________________________
+18 test maximalni teploty = 
+
+VAR maximalni_teplota = MAX(data[maximalni_teplota])
+VAR maximalni_teplota_rok = MAXX(FILTER(ALL(data),data[rok] = SELECTEDVALUE(data[rok])),data[maximalni_teplota])
+VAR maximalni_teplota_vse = MAXX(ALL(data),data[maximalni_teplota])
+
+return
+IF(maximalni_teplota = maximalni_teplota_vse,"nejteplejsi celkem",
+    IF(maximalni_teplota = maximalni_teplota_rok, "nejteplejsi v roce",""))
